@@ -1,6 +1,8 @@
 # Protocol
 The protocol that the Felt components use to interact with each other.
 
+Transport layer protocol: [WebSocket](https://en.wikipedia.org/wiki/WebSocket).
+
 ## Components
 
 * Presentation
