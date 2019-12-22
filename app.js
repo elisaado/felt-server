@@ -1,20 +1,11 @@
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+const WebSocket = require('ws');
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const wss = new WebSocket.Server({ port: 8080 });
 
-const app = express();
+wss.on('connection', function connection(ws) {
+    ws.on('message', function incoming(message) {
+        console.log('received: %s', message);
+    });
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-module.exports = app;
+    ws.send('something');
+});
