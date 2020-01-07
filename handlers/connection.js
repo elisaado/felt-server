@@ -14,8 +14,36 @@ function connection(ws) {
             .map(part => part.toLowerCase());
 
         switch (parts[0]) {
-            case "":
-            default:
+            case "ident": {
+
+                break;
+            } case "init": {
+
+                break;
+            } case "kill": {
+                break;
+            } case "join": {
+
+break;
+            } case "quit": {
+
+                break;
+            } case "left": {
+
+                break;
+            } case "right": {
+
+                break;
+            } case "up": {
+
+                break;
+            } case "down": {
+                break;
+            }
+
+            default: {
+                ws.send("Unknown command");
+            }
 
         }
     });
