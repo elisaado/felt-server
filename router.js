@@ -4,8 +4,6 @@ const rooms = {};
 
 // This function is run for every new connection
 function connection(ws) {
-    console.log(ws);
-
     ws.on('message', (message) => {
         // check for undefined or null message
         if (!message || !message.length) return;
@@ -15,16 +13,21 @@ function connection(ws) {
 
         switch (parts[0]) {
             case "ident": {
+                console.log(ws.data);
 
+                if (!ws.data) { // Check if ws.data exists
+
+                }
                 break;
             } case "init": {
 
                 break;
             } case "kill": {
+
                 break;
             } case "join": {
 
-break;
+                break;
             } case "quit": {
 
                 break;
@@ -38,13 +41,13 @@ break;
 
                 break;
             } case "down": {
+
                 break;
             }
 
             default: {
                 ws.send("Unknown command");
             }
-
         }
     });
 }
