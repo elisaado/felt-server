@@ -5,13 +5,13 @@ Transport layer protocol: [WebSocket](https://en.wikipedia.org/wiki/WebSocket).
 
 ## Components
 
-* Presentation
+* Presentation (PRN)
 
    The plugin running in the Reveal.JS presentation that is getting controlled.
-* Server
+* Server (SRV)
 
    The back-end server that manages the rooms.
-* Controller
+* Controller (CTL)
 
    The mobile app that controls the presentation remotely.
 
