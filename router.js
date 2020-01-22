@@ -1,3 +1,4 @@
+const ident = require('./handlers/ident');
 
 const store = {
   rooms: {},
@@ -20,6 +21,7 @@ module.exports = (ws) => {
 
     switch (parts[0]) {
       case 'ident': {
+        ident({ ws, args, store });
         break;
       } case 'init': {
         break;
