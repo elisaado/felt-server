@@ -1,9 +1,9 @@
+
 const store = {
   rooms: {},
 };
 
-// This function is run for every new connection
-function connection(ws) {
+module.exports = (ws) => {
   ws.on('message', (message) => {
     // check for undefined or null message
     if (!message || !message.length) return;
@@ -12,6 +12,11 @@ function connection(ws) {
       .map((part) => part.toLowerCase());
 
     const args = parts.slice(1);
+
+    console.log(ws.data);
+
+    // check if ws.data exists
+    if (!ws.data) ws.data = {};
 
     switch (parts[0]) {
       case 'ident': {
@@ -39,6 +44,4 @@ function connection(ws) {
       }
     }
   });
-}
-
-module.exports = connection;
+};
