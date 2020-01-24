@@ -1,9 +1,9 @@
 # Protocol
-The protocol that the Felt components use to interact with each other.
+The protocol that the Felt clients and server use to interact with each other.
 
 Transport layer protocol: [WebSocket](https://en.wikipedia.org/wiki/WebSocket).
 
-## Components
+## Clients
 
 * Presentation (PRN)
 
@@ -26,7 +26,7 @@ A controller connects to the server, and joins the room, it can then instruct th
 
 |Command|Who|Description|Arguments|Returns|
 |---|---|---|---|---|
-|IDENT|_Any_|Identify as a certain component|The component `String`|`None`|
+|IDENT|_Any_|Identify as a certain client|The client `String`|`None`|
 |INIT|Presentation|Initialize a new room|`None`|A new room number `Int`|
 |KILL|Presentation|Kill the current room|`None`|`None`|
 |JOIN|Controller|Join a room|A room number `Int`|`None`|

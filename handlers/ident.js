@@ -1,10 +1,10 @@
 module.exports = ({ ws, args, store }) => {
-  if (ws.data.component) return ws.send('Cannot change component');
+  if (ws.data.client) return ws.send('Cannot change client');
   if (args.length === 0) return ws.send('No arguments provided');
-  const component = args[0].toUpperCase();
+  const client = args[0].toUpperCase();
 
-  if (component !== 'CTL' && component !== 'PRN') return ws.send('Invalid client');
+  if (client !== 'CTL' && client !== 'PRN') return ws.send('Invalid client');
 
-  ws.data.component = component;
+  ws.data.client = client;
   return ws.send('OK');
 };
