@@ -1,4 +1,5 @@
 const ident = require('./handlers/ident');
+const init = require('./handlers/init');
 
 const store = {
   rooms: {},
@@ -6,6 +7,8 @@ const store = {
 
 module.exports = (ws) => {
   ws.on('message', (message) => {
+    console.log(store);
+
     // check for undefined or null message
     if (!message || !message.length) return;
 
@@ -13,8 +16,6 @@ module.exports = (ws) => {
       .map((part) => part.toLowerCase());
 
     const args = parts.slice(1);
-
-    console.log(ws.data);
 
     // check if ws.data exists
     if (!ws.data) ws.data = {};
@@ -24,6 +25,7 @@ module.exports = (ws) => {
         ident({ ws, args, store });
         break;
       } case 'init': {
+        init({ ws, args, store });
         break;
       } case 'kill': {
         break;
