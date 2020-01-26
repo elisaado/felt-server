@@ -4,6 +4,7 @@ module.exports = ({ ws, args, store }) => {
   if (ws.data.roomNumber) return ws.send('Already in a room');
 
   const roomNumber = args[0];
+  if (!store.rooms[roomNumber]) return ws.send('Room not found');
 
   store.rooms[roomNumber].controllers.push(ws);
   ws.data.roomNumber = roomNumber;
