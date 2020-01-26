@@ -1,5 +1,6 @@
 const ident = require('./handlers/ident');
 const init = require('./handlers/init');
+const join = require('./handlers/join');
 
 const store = {
   rooms: {},
@@ -30,6 +31,7 @@ module.exports = (ws) => {
       } case 'kill': {
         break;
       } case 'join': {
+        join({ ws, args, store });
         break;
       } case 'quit': {
         break;
