@@ -19,7 +19,7 @@ Transport layer protocol: [WebSocket](https://en.wikipedia.org/wiki/WebSocket).
 A Presentation connects to the Server. It identifies as a presentation and initializes a new room.
 A room is a place where the Controller(s) can talk to the Presentation.
 
-It notifies the user of the room number, and the user takes action, maybe by opening a controller app.
+It notifies the user of the room number, and the user takes action, for example, by opening a controller app.
 A controller connects to the server, and joins the room, it can then instruct the Presentation to go to the next slide (RIGHT), previous slide (LEFT), up, or to go down.
 
 ## Commands
