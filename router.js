@@ -1,5 +1,6 @@
 const ident = require('./handlers/ident');
 const init = require('./handlers/init');
+const kill = require('./handlers/kill');
 const join = require('./handlers/join');
 
 const store = {
@@ -29,6 +30,7 @@ module.exports = (ws) => {
         init({ ws, args, store });
         break;
       } case 'kill': {
+        kill({ ws, args, store });
         break;
       } case 'join': {
         join({ ws, args, store });
