@@ -9,7 +9,7 @@ module.exports = ({ ws, args, store }) => {
   store.rooms[roomNumber].controllers.push(ws);
   ws.data.roomNumber = roomNumber;
 
-  store.rooms[roomNumber].presentation.send(`Controller ${store.rooms[roomNumber].controllers.length} has joined.`);
+  store.rooms[roomNumber].presentation.send(`Controller ${store.rooms[roomNumber].controllers.length} has joined`);
 
   return ws.send('OK');
 };

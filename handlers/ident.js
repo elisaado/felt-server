@@ -1,6 +1,6 @@
 module.exports = ({ ws, args, store }) => {
   if (args.length !== 1) return ws.send('Invalid number of arguments provided');
-  if (ws.data.client) return ws.send('Cannot change client');
+  if (ws.data.client) return ws.send('Cannot change ident');
 
   const client = args[0].toUpperCase();
 
