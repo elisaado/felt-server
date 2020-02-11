@@ -26,11 +26,11 @@ The controller connects to the server, and joins the room. The presentation is n
 
 |Command|Who|Description|Arguments|Returns|
 |---|---|---|---|---|
-|IDENT|_Any_|Identify as a certain client|The client `String`|`None`|
+|IDENT|_Any_|Identify as a certain client|The client `String`|`OK` if OK|
 |INIT|Presentation|Initialize a new room|`None`|A new room number `Int`|
-|KILL|Presentation|Kill the current room|`None`|`None`|
-|JOIN|Controller|Join a room|A room number `Int`|`None`|
-|QUIT|Controller|Quit the current room|`None`|`None`|
+|KILL|Presentation|Kill the current room and notify any Controllers in the room that the room was killed|`None`|`OK` if OK|
+|JOIN|Controller|Join a room and notify the Presentation that a controller has joined|A room number `Int`|`OK` if OK|
+|QUIT|Controller|Quit the current room|`None`|`OK` if OK|
 |LEFT|Controller|Go to left|`None`|`None`|
 |RIGHT|Controller|Go to right|`None`|`None`|
 |UP|Controller|Go up|`None`|`None`|
