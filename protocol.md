@@ -31,10 +31,7 @@ The controller connects to the server, and joins the room. The presentation is n
 |KILL|Presentation|Kill the current room and notify any Controllers in the room that the room was killed|`None`|`OK` if OK|
 |JOIN|Controller|Join a room and notify the Presentation that a controller has joined|A room number `Int`|`OK` if OK|
 |QUIT|Controller|Quit the current room|`None`|`OK` if OK|
-|LEFT|Controller|Go to left|`None`|`None`|
-|RIGHT|Controller|Go to right|`None`|`None`|
-|UP|Controller|Go up|`None`|`None`|
-|DOWN|Controller|Go down|`None`|`None`|
+|MOVE|Controller|Go in a direction|`LEFT`, `RIGHT`, `UP`, `DOWN` `Direction`|`OK` if OK|
 
 ## Errors
 // todo
