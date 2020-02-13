@@ -3,6 +3,7 @@ const init = require('./handlers/init');
 const kill = require('./handlers/kill');
 const join = require('./handlers/join');
 const quit = require('./handlers/quit');
+const move = require('./handlers/move');
 
 const store = {
   rooms: {},
@@ -39,13 +40,8 @@ module.exports = (ws) => {
       } case 'quit': {
         quit({ ws, args, store });
         break;
-      } case 'left': {
-        break;
-      } case 'right': {
-        break;
-      } case 'up': {
-        break;
-      } case 'down': {
+      } case 'move': {
+        move({ ws, args, store });
         break;
       }
 
