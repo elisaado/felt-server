@@ -50,4 +50,30 @@ module.exports = (ws) => {
       }
     }
   });
+
+  ws.on('close', () => {
+    if (Object.entries(ws.data).length === 0 || !ws.data.roomNumber) return;
+
+    if (ws.data.client === 'PRN') {
+      const room = store.rooms[ws.data.roomNumber];
+
+      room.controllers.forEach((controller) => {
+        controller.send(`Room ${controller.data.roomNumber} was killed`);
+        delete controller.data.roomNumber;
+      });
+
+      delete store.rooms[ws.data.roomNumber];
+      delete ws.data.roomNumber;
+    } else if (ws.data.client === 'CTL') {
+      const { presentation, controllers } = store.rooms[ws.data.roomNumber];
+      const i = controllers.indexOf(ws);
+
+      controllers.splice(i);
+      presentation.send(`Controller ${i + 1} has quit`);
+
+      delete ws.data.roomNumber;
+    }
+
+    ws.data = null;
+  });
 };
