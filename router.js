@@ -1,3 +1,5 @@
+const rateLimit = require('ws-rate-limit')('1s', 5);
+
 const ident = require('./handlers/ident');
 const init = require('./handlers/init');
 const kill = require('./handlers/kill');
@@ -10,6 +12,8 @@ const store = {
 };
 
 module.exports = (ws) => {
+  rateLimit(ws);
+
   ws.on('message', (message) => {
     console.log(store);
 
@@ -75,5 +79,9 @@ module.exports = (ws) => {
     }
 
     ws.data = null;
+  });
+
+  ws.on('limited', () => {
+    ws.close('Ratelimit exceeded');
   });
 };
