@@ -82,6 +82,7 @@ module.exports = (ws) => {
   });
 
   ws.on('limited', () => {
-    ws.close('Ratelimit exceeded');
+    ws.send('Ratelimit exceeded');
+    ws.close(1014);
   });
 };
