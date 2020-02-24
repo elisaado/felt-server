@@ -14,6 +14,9 @@ const store = {
 module.exports = (ws) => {
   rateLimit(ws);
 
+  // Add ws.data if it does not exist
+  if (!ws.data) ws.data = {};
+
   ws.on('message', (message) => {
     console.log(store);
 
@@ -24,9 +27,6 @@ module.exports = (ws) => {
       .map((part) => part.toLowerCase());
 
     const args = parts.slice(1);
-
-    // check if ws.data exists
-    if (!ws.data) ws.data = {};
 
     switch (parts[0]) {
       case 'ident': {
