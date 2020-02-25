@@ -22,6 +22,8 @@ A room is a place where the Controller(s) can talk to the Presentation.
 It notifies the user of the room number, and the user takes action, for example, by opening a controller app.
 The controller connects to the server, and joins the room. The presentation is notified of this and may take action (for example, by hiding the room number). The controller can then instruct the Presentation to go to the next slide (RIGHT), previous slide (LEFT), up, or to go down.
 
+To ensure the connection stays alive, the server sends a ping frame every 5 seconds.
+
 ## Commands
 
 |Command|Who|Description|Arguments|Returns|

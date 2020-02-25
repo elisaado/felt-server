@@ -6,12 +6,15 @@ const kill = require('./handlers/kill');
 const join = require('./handlers/join');
 const quit = require('./handlers/quit');
 const move = require('./handlers/move');
+const heartBeat = require('./middleware/heartbeat');
 
 const store = {
   rooms: {},
 };
 
 module.exports = (ws) => {
+  // apply middleware
+  heartBeat(ws);
   rateLimit(ws);
 
   // Add ws.data if it does not exist
